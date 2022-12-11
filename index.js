@@ -6,6 +6,8 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+app.set("trust proxy");
+
 app.use(express.json());
 app.use(logger("combined"));
 app.use(cors());
