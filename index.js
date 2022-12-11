@@ -2,9 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const logger = require("morgan");
 
-const healthRoute = require("./routers/health");
-const { connectToDb } = require("./config/db");
-
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -13,8 +10,18 @@ app.use(express.json());
 app.use(logger("combined"));
 app.use(cors());
 
-connectToDb();
+const db = require("./models");
+db.sequelize
+  .sync()
+  .then(() => {
+    console.log("Synced db.");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db: " + err.message);
+  });
 
-app.use("/api/v1/", healthRoute);
+const router = require("./routers/router");
+
+app.use("/api/v1/", router);
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
