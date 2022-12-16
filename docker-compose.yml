@@ -48,7 +48,7 @@ services:
     environment:
       - IGNORELIST_SERVICES=tasker_shepherd
       - IGNORELIST_SERVICES=tasker_balancer
-      - IGNORELIST_SERVICES=tasker_balancer
+      - IGNORELIST_SERVICES=tasker_db
       - SLEEP_TIME=2m
     deploy:
       placement:
