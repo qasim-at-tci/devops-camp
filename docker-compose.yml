@@ -40,6 +40,18 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - db-data:/var/lib/postgresql/data
+  shepherd:
+    build: .
+    image: mazzolino/shepherd
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - IGNORELIST_SERVICES="shepherd db balancer"
+      - SLEEP_TIME="2m"
+    deploy:
+      placement:
+        constraints:
+        - node.role == manager
 
 volumes:
   db-data:
