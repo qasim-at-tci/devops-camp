@@ -46,8 +46,10 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - IGNORELIST_SERVICES="tasker_shepherd tasker_db tasker_balancer"
-      - SLEEP_TIME="2m"
+      - IGNORELIST_SERVICES=tasker_shepherd"
+      - IGNORELIST_SERVICES=tasker_balancer"
+      - IGNORELIST_SERVICES=tasker_balancer"
+      - SLEEP_TIME=2m
     deploy:
       placement:
         constraints:
