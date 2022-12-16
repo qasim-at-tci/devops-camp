@@ -46,7 +46,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - FILTER_SERVICES="name=tasker_api"
+      - FILTER_SERVICES=tasker_api
       - SLEEP_TIME=2m
       - ROLLBACK_ON_FAILURE=true
     deploy:
