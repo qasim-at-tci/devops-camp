@@ -19,6 +19,13 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     depends_on:
       - db
+    deploy:
+      replicas: 6
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 3
+        delay: 20s
   db:
     image: postgres:13.9-alpine
     healthcheck:
@@ -33,6 +40,10 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - db-data:/var/lib/postgresql/data
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: any
 
 volumes:
   db-data:
