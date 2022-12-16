@@ -46,9 +46,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - IGNORELIST_SERVICES: 'tasker_shepherd tasker_db tasker_balancer'
-      - SLEEP_TIME: 2m
-      - ROLLBACK_ON_FAILURE: true
+      IGNORELIST_SERVICES: 'tasker_shepherd tasker_db tasker_balancer'
+      SLEEP_TIME: 2m
+      ROLLBACK_ON_FAILURE: true
     deploy:
       placement:
         constraints:
