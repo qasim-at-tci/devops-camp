@@ -49,6 +49,7 @@ services:
       IGNORELIST_SERVICES: 'tasker_shepherd tasker_db tasker_balancer'
       SLEEP_TIME: 2m
       ROLLBACK_ON_FAILURE: 'true'
+      TZ: 'Asia/Karachi'
     deploy:
       placement:
         constraints:
