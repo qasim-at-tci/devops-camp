@@ -25,4 +25,4 @@ docker compose up -d --scale api=3
 - `docker stack services tasker` - List services | `docker service ls`
 - `docker stack ps tasker` - List Tasks
 - Build and push new Image
-- `docker stack deploy -c docker-compose.yml tasker` - Rolling updates
+- Rolling updates handled by [Shepherd](https://github.com/djmaze/shepherd)
